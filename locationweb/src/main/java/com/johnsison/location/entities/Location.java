@@ -8,17 +8,17 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 
 @Entity
-@Table(name="location")
+//@Table(name="location")
 public class Location {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer Id;
-	@Column(name="code")
+	//@Column(name="code")
 	private String code;
-	@Column(name="name")
+	//@Column(name="name")
 	private String name;
-	@Column(name="type")
+	//@Column(name="type")
 	private String type;
 	
 	public Integer getId() {

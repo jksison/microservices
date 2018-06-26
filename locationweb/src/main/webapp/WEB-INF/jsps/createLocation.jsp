@@ -4,21 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Create Location</title>
 </head>
 <body>
 
 <pre>
-	<form action="" method="">
+	<form action="saveLoc" method="post">
 		Id: <input type="text" name="id" /> 
 		Code: <input type="text" name="code" /> 
 		Name: <input type="text" name="name" /> 
-		Type: Urban <input type="radio" name="type" /> 
-			  Rural <input type="radio" name="type" />
+		Type: Urban <input type="radio" name="type" value="URBAN"/> 
+			Rural <input type="radio" name="type" value="RURAL"/>
 
 		<input type="submit" name="save" />
 
 	</form>
 </pre>
+${msg}
+
+<a href="displayLocations">View All</a>
 </body>
 </html>

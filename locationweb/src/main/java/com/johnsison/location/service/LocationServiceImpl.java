@@ -3,10 +3,12 @@ package com.johnsison.location.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.johnsison.location.entities.Location;
 import com.johnsison.location.repos.LocationRepository;
 
+@Service
 public class LocationServiceImpl implements LocationService {
 
 	@Autowired

@@ -3,6 +3,8 @@ package com.johnsison.location;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.johnsison.location.service.LocationService;
+
 @SpringBootApplication
 public class LocationwebApplication {
 
