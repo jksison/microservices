@@ -64,6 +64,7 @@ public class LocationController {
 		service.updateLocation(location);
 		List<Location> locations = service.getAllLocations();		
 		modelMap.addAttribute("locations", locations);
+		
 		return "displayLocations";
 	}
 }
