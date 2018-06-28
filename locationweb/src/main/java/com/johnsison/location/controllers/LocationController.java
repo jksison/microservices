@@ -1,4 +1,4 @@
-package com.johnsison.location.controller;
+package com.johnsison.location.controllers;
 
 import java.util.List;
 
