@@ -2,6 +2,8 @@ package com.johnsison.location.controller;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.johnsison.location.entities.Location;
+import com.johnsison.location.repos.LocationRepository;
 import com.johnsison.location.service.LocationService;
 import com.johnsison.location.util.EmailUtil;
+import com.johnsison.location.util.ReportUtil;
 
 @Controller
 public class LocationController {
@@ -20,7 +24,16 @@ public class LocationController {
 	LocationService service;
 	
 	@Autowired
+	LocationRepository repository;
+	
+	@Autowired
 	EmailUtil emailUtil;
+	
+	@Autowired
+	ReportUtil reportUtil;
+	
+	@Autowired
+	ServletContext sc;
 	
 	@RequestMapping("/showCreate")
 	public String showCreate() {
@@ -33,8 +46,8 @@ public class LocationController {
 		Location savedLocation = service.saveLocation(location);
 		String msg = "Location saved with id: " + savedLocation.getId();
 		modelMap.addAttribute("msg", msg);
-		emailUtil.sendEmail("johnk.sison@gmail.com", "Location Saved", 
-				"Location Saved Successfully and about to return a response.");
+		//emailUtil.sendEmail("johnk.sison@gmail.com", "Location Saved", 
+			//	"Location Saved Successfully and about to return a response.");
 		return "createLocation";
 	}
 	
@@ -72,5 +85,14 @@ public class LocationController {
 		modelMap.addAttribute("locations", locations);
 		
 		return "displayLocations";
+	}
+	
+	@RequestMapping("/generateReport")
+	public String generateReport() {
+		String path = sc.getRealPath("/");
+		
+		List<Object[]> data = repository.findTypeAndTypeCount();
+		reportUtil.generatePieCharts(path, data);
+		return "report";
 	}
 }
