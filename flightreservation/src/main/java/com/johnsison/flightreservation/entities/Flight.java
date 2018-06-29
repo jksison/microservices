@@ -3,6 +3,8 @@ package com.johnsison.flightreservation.entities;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 @Entity
 public class Flight extends AbstractEntity {
 

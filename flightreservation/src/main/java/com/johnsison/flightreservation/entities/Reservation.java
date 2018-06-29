@@ -8,9 +8,9 @@ public class Reservation extends AbstractEntity {
 
 	private Boolean checkIn;
 	private int numberOfBags;
-	@OneToOne
+	@OneToOne(targetEntity = Passenger.class)
 	private Passenger passenger;
-	@OneToOne
+	@OneToOne(targetEntity = Flight.class)
 	private Flight flight;
 
 	public Boolean getCheckIn() {
