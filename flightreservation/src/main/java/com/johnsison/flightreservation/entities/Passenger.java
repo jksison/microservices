@@ -1,15 +1,23 @@
 package com.johnsison.flightreservation.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="PASSENGER")
 public class Passenger extends AbstractEntity {
 	
+	@Column(name="FIRST_NAME")
 	private String firstName;
+	@Column(name="LAST_NAME")
 	private String lastName;
+	@Column(name="MIDDLE_NAME")
 	private String middleName;
+	@Column(name="EMAIL")
 	private String email;
-	private String password;
+	@Column(name="PHONE")
+	private String phone;
 
 	public String getFirstName() {
 		return firstName;
@@ -43,11 +51,11 @@ public class Passenger extends AbstractEntity {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 }

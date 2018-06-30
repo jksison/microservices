@@ -1,4 +1,4 @@
-package com.johnsison.flightreservation.controller;
+package com.johnsison.flightreservation.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
