@@ -42,7 +42,7 @@ public class ReservationServiceImpl implements ReservationService {
 		Reservation reservation = new Reservation();
 		reservation.setFlight(flight);
 		reservation.setPassenger(passenger);
-		reservation.setCheckIn(false);
+		reservation.setCheckedIn(false);
 		
 		Reservation savedReservation = reservationRepository.save(reservation);
 		
