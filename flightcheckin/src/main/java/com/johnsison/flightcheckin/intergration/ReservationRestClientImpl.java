@@ -1,5 +1,6 @@
 package com.johnsison.flightcheckin.intergration;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -9,7 +10,9 @@ import com.johnsison.flightcheckin.intergration.dto.ReservationUpdateRequest;
 @Component
 public class ReservationRestClientImpl implements ReservationRestClient {
 
-	private static final String RESERVATION_REST_URL = "http://localhost:8080/flightreservation/reservations/";
+	@Value("${com.johnsison.flightcheckin.reservation.url}")
+	private String RESERVATION_REST_URL;
+	
 	@Override
 	public Reservation findReservation(Long id) {
 		RestTemplate restTemplate = new RestTemplate();
